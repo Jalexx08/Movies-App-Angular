@@ -33,7 +33,6 @@ export class PeliculaComponent implements OnInit {
       this.peliculasService.getCast(id)
 
     ]).subscribe(([movie, cast]) => {
-      console.log({ movie, cast });
       if (!movie) {
         this.router.navigateByUrl('/home');
         return;
@@ -42,6 +41,8 @@ export class PeliculaComponent implements OnInit {
       this.cast = cast.filter(actor => actor.profile_path !== null);
 
     })
+
+    //* Forma Sin combineLatest
 
     // this.peliculasService.getPeliculaDetalle(id).subscribe(
     //   movie => {
