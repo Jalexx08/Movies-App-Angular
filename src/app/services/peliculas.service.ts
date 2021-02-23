@@ -26,7 +26,7 @@ export class PeliculasService {
   }
 
   resetCarteleraPAge() {
-    this.carteleraPage =1;
+    this.carteleraPage = 1;
   }
 
   getCartelera(): Observable<Movie[]> {
@@ -59,22 +59,22 @@ export class PeliculasService {
     )
   }
 
-  getPeliculaDetalle( id: string ) {
+  getPeliculaDetalle(id: string): Observable<MovieResponse> {
 
-    return this.http.get<MovieResponse>(`${this.baseUrl}/movie/${ id }`, {
+    return this.http.get<MovieResponse>(`${this.baseUrl}/movie/${id}`, {
       params: this.params
     }).pipe(
-      catchError( err => of(null))
+      catchError(err => of(null))
     );
-    
-  }
-  getCast( id: string ): Observable<Cast[]> {
 
-    return this.http.get<CreditsResponse>(`${this.baseUrl}/movie/${ id }/credits`, {
+  }
+  getCast(id: string): Observable<Cast[]> {
+
+    return this.http.get<CreditsResponse>(`${this.baseUrl}/movie/${id}/credits`, {
       params: this.params
     }).pipe(
-      map( resp => resp.cast ),
-      catchError( err => of([]))
+      map(resp => resp.cast),
+      catchError(err => of([]))
     );
   }
 

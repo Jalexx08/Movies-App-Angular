@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { PeliculasService } from '../../services/peliculas.service';
 import { MovieResponse } from '../../interfaces/movie-response';
 import { Cast } from '../../interfaces/credits-response';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-pelicula',
@@ -23,24 +24,42 @@ export class PeliculaComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    const { id } = this.activatedRoute.snapshot.params;
-    this.peliculasService.getPeliculaDetalle(id).subscribe(
-      movie => {
-        if (!movie) {
-          this.router.navigateByUrl('/home');
-          return;
-        };
-        this.movie = movie;
-        // console.log(movie);
-      }
-    );
 
-    this.peliculasService.getCast(id).subscribe(
-      cast => {
-        this.cast = cast.filter( actor => actor.profile_path !== null);
-        // console.log(cast);
-      }
-    );
+    const { id } = this.activatedRoute.snapshot.params;
+
+    combineLatest([
+
+      this.peliculasService.getPeliculaDetalle(id),
+      this.peliculasService.getCast(id)
+
+    ]).subscribe(([movie, cast]) => {
+      console.log({ movie, cast });
+      if (!movie) {
+        this.router.navigateByUrl('/home');
+        return;
+      };
+      this.movie = movie;
+      this.cast = cast.filter(actor => actor.profile_path !== null);
+
+    })
+
+    // this.peliculasService.getPeliculaDetalle(id).subscribe(
+    //   movie => {
+    //     if (!movie) {
+    //       this.router.navigateByUrl('/home');
+    //       return;
+    //     };
+    //     this.movie = movie;
+    //     // console.log(movie);
+    //   }
+    // );
+
+    // this.peliculasService.getCast(id).subscribe(
+    //   cast => {
+    //     this.cast = cast.filter(actor => actor.profile_path !== null);
+    //     // console.log(cast);
+    //   }
+    // );
 
   }
 
