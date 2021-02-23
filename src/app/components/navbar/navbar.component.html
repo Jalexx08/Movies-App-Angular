@@ -1,35 +1,51 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<!-- <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/home">Películas</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
+    <a class="navbar-brand ms-5" routerLink="/home"
+      ><h1 class="display-4">Películas App</h1></a
     >
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-      <div class="d-flex">
+      <div class="d-flex me-5">
         <input
           #txtBuscar
-          (keyup.enter) = "buscarPelicula(txtBuscar.value)"
+          (keyup.enter)="buscarPelicula(txtBuscar.value)"
           class="form-control me-2"
           type="search"
           placeholder="Buscar Película"
           aria-label="Search"
         />
-        <button 
-        (click)="buscarPelicula( txtBuscar.value) "
-        class="btn btn-outline-success"
-         type="submit">
-         Buscar
+        <button
+          (click)="buscarPelicula(txtBuscar.value)"
+          class="btn btn-outline-success"
+          type="submit"
+        >
+          Buscar
         </button>
       </div>
+    </div>
+  </div>
+</nav> -->
+<nav class="navbar navbar-dark bg-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand ms-5" routerLink="/home">
+      <h1 class="display-3">Películas App</h1>
+    </a>
+    <div class="d-flex mx-sm-auto me-md-5">
+      <input
+        #txtBuscar
+        (keyup.enter)="buscarPelicula(txtBuscar.value)"
+        class="form-control me-2"
+        type="search"
+        placeholder="Buscar Película"
+        aria-label="Search"
+      />
+      <button
+        (click)="buscarPelicula(txtBuscar.value)"
+        class="btn btn-outline-success"
+        type="submit"
+      >
+        Buscar
+      </button>
     </div>
   </div>
 </nav>

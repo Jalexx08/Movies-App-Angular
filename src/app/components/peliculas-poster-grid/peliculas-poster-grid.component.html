@@ -1,10 +1,13 @@
 <div class="row">
-  <div class="col-md-3 mb-5 animate__animated animate__pulse" *ngFor="let movie of movies">
+  <div
+    class="col-sm-6 col-md-4 col-lg-3 mb-5 animate__animated animate__pulse"
+    *ngFor="let movie of movies"
+  >
     <img
-      [src]= " movie.poster_path | poster"
+      [src]="movie.poster_path | poster"
       alt="{{ movie.title }}"
       class="img-fluid poster"
-      (click)="onMovieClick( movie )"
+      (click)="onMovieClick(movie)"
     />
     <div>
       <h3>{{ movie.title }}</h3>
@@ -20,7 +23,7 @@
           ></star-rating>
         </div>
         <div class="col-2 text-white">
-          {{ movie.vote_average | number: "1.1-2" }}
+          <span>{{ movie.vote_average | number: "1.1-2" }}</span>
         </div>
       </div>
     </div>

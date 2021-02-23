@@ -1,9 +1,9 @@
 h3 {
-    font-size: 15px;
+    font-size: 2rem;
 }
 
 .poster {
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin: 5px;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(214, 25, 25, 0.5);
+    margin: 0.5rem;
 }

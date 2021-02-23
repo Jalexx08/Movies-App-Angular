@@ -13,8 +13,10 @@
       }"
     >
       <div class="movie-description">
-        <h3>{{ movie.title }}</h3>
-        <p>{{ movie.overview | slice: 0:130 }}...</p>
+        <h3 class="movie-description-h3">{{ movie.title }}</h3>
+        <p class="movie-description-p">
+          {{ movie.overview | slice: 0:130 }}...
+        </p>
       </div>
     </div>
   </div>
@@ -22,6 +24,6 @@
   <div class="swiper-pagination"></div>
 
   <!-- If we need navigation buttons -->
-  <div  (click)="onSlidePrev()" class="swiper-button-prev"></div>
-  <div  (click)="onSlideNext()" class="swiper-button-next"></div>
+  <div (click)="onSlidePrev()" class="swiper-button-prev"></div>
+  <div (click)="onSlideNext()" class="swiper-button-next"></div>
 </div>
