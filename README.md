@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 1. Angular 11.2.1
 2. TMDb API
 3. Bootstrap 5
-5. AnimeteCss
+5. Animate.css
 
 
 ## Credits:
